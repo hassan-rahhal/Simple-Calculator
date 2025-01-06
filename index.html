@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="cal">
+        <div class="screen">
+            <input type="text" id="screen" readonly>
+        </div>
+        <div class="down">
+            <button id="c" class="orange" onclick="clearscreen()">C</button>
+            <button class="orange" onclick="backspace()">&larr;</button>
+            <button class="orange" onclick="appendvalue('/')">&divide;</button>
+            <button onclick="appendvalue(7)">7</button>
+            <button onclick="appendvalue(8)">8</button>
+            <button onclick="appendvalue(9)">9</button>
+            <button class="orange" onclick="appendvalue('*')">x</button>
+            <button onclick="appendvalue(4)">4</button>
+            <button onclick="appendvalue(5)">5</button>
+            <button onclick="appendvalue(6)">6</button>
+            <button class="orange"onclick="appendvalue('-')">-</button>
+            <button onclick="appendvalue(1)">1</button>
+            <button onclick="appendvalue(2)">2</button>
+            <button onclick="appendvalue(3)">3</button>
+            <button class="orange" onclick="appendvalue('+')">+</button>
+            <button id="zero" onclick="appendvalue(0)">0</button>
+            <button class="orange" onclick="equal()">=</button>
+        </div>
+    </div>
+    <script>
+        const screen = document.getElementById("screen");
+
+        function appendvalue(n){
+            screen.value+=n;
+        }
+        function clearscreen(){
+            screen.value = "";
+        }
+        function backspace(){
+            screen.value=screen.value.slice(0,-1);
+        }
+        function equal(){
+            screen.value=eval(screen.value);
+        }
+    </script>
+</body>
+</html>

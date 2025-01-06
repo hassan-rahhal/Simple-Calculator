@@ -1,0 +1,42 @@
+.cal{
+    height: fit-content;
+    width: 345px;
+    background-color: black;
+}
+.screen{
+    width: 100%;
+    height: 100px;
+}
+.screen input{
+    color: white;
+    text-align: right;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    font-size: 40px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.down{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+}
+.down button{
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 36px;
+}
+#zero{
+    grid-column: span 3;
+}
+#c{
+    grid-column: span 2;
+}
+.orange{
+    background-color: orange;
+}
+button:hover{
+    background-color: grey;
+}

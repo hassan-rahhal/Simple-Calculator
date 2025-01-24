@@ -22,7 +22,7 @@
             <button onclick="appendvalue(4)">4</button>
             <button onclick="appendvalue(5)">5</button>
             <button onclick="appendvalue(6)">6</button>
-            <button class="orange"onclick="appendvalue('-')">-</button>
+            <button class="orange" onclick="appendvalue('-')">-</button>
             <button onclick="appendvalue(1)">1</button>
             <button onclick="appendvalue(2)">2</button>
             <button onclick="appendvalue(3)">3</button>
@@ -34,17 +34,49 @@
     <script>
         const screen = document.getElementById("screen");
 
-        function appendvalue(n){
-            screen.value+=n;
+        function appendvalue(n) {
+            screen.value += n;
         }
-        function clearscreen(){
+
+        function clearscreen() {
             screen.value = "";
         }
-        function backspace(){
-            screen.value=screen.value.slice(0,-1);
+
+        function backspace() {
+            screen.value = screen.value.slice(0, -1);
         }
-        function equal(){
-            screen.value=eval(screen.value);
+
+        function equal() {
+            try {
+                screen.value = eval(screen.value);
+            } catch {
+                screen.value = "Error";
+            }
+        }
+
+        document.addEventListener("keydown", (event) => {
+            const key = event.key;
+            if (!isNaN(key)) {
+                appendvalue(key);
+            } else if (["+", "-", "*", "/"].includes(key)) {
+                appendvalue(key);
+            } else if (key === "Enter") {
+                equal();
+            } else if (key === "Backspace") {
+                backspace();
+            } else if (key === "Escape") {
+                clearscreen();
+            } else if (key === ".") {
+                appendvalue(key);
+            }
+        });
+
+        function percentage() {
+            try {
+                screen.value = (eval(screen.value) / 100).toString();
+            } catch {
+                screen.value = "Error";
+            }
         }
     </script>
 </body>
